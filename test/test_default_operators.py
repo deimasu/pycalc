@@ -1,3 +1,6 @@
+"""
+Tests for default_operators.py
+"""
 import unittest
 import sys
 
@@ -6,8 +9,13 @@ from data.default_operators import *
 
 
 class OperatorsTest(unittest.TestCase):
-
+    """
+    Test for operators
+    """
     def test_operators(self):
+        """
+        testing all operators to work fine
+        """
         self.assertEqual(operators["+"](3, 2), 5)
         self.assertEqual(operators["-"](3, 2), 1)
         self.assertEqual(operators["*"](3, 2), 6)

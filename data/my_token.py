@@ -40,6 +40,14 @@ class Token:
         """
         return self.s_value
 
+    def __eq__(self, other):
+        """
+        Overriding == operator to compare only string values and types
+        :param other: the token to compare with
+        :return: bool are tokens equal
+        """
+        return self.s_value == other.s_value and self.type == other.type
+
     def is_right_associative(self):
         """
         Checks if the given operator is right_associative(power and unary operations)

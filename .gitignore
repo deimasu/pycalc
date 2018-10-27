@@ -1,6 +1,11 @@
-# ignore python cache files
+# python cache files
 *__pycache__*
-# ignore virtual environment files
+# virtual environment files
 venv/
-# ignore PyCharm files
+# PyCharm files
 .idea/
+# distribution folders
+dist/
+pycalc.egg-info/
+# coverage files
+*.coverage*

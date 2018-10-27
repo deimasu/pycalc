@@ -1,3 +1,6 @@
+"""
+Tests for main pycalc function
+"""
 import unittest
 from math import *
 import sys
@@ -7,14 +10,22 @@ import pycalc
 
 
 class OverallTests(unittest.TestCase):
-
+    """
+    Tests evaluating real math string expressions
+    """
     def test_unary_operators(self):
+        """
+        unary operators
+        """
         self.assertEqual(pycalc.evaluate_string_expression("-13", []), -13)
         self.assertEqual(pycalc.evaluate_string_expression("6-(-13)", []), 6 - (-13))
         self.assertEqual(pycalc.evaluate_string_expression("1---1", []), 1 - --1)
         self.assertEqual(pycalc.evaluate_string_expression("-+---+-1", []), -+---+-1)
 
     def test_operation_priority(self):
+        """
+        priority of operations in expression
+        """
         self.assertEqual(pycalc.evaluate_string_expression("1+2*2", []), 1 + 2 * 2)
         self.assertEqual(pycalc.evaluate_string_expression("1+(2+3*2)*3", []), 1 + (2 + 3 * 2) * 3)
         self.assertEqual(pycalc.evaluate_string_expression("10*(2+1)", []), 10 * (2 + 1))
@@ -23,6 +34,9 @@ class OverallTests(unittest.TestCase):
         self.assertEqual(pycalc.evaluate_string_expression("100/3%2^2", []), 100 / 3 % 2 ** 2)
 
     def test_functions_and_constants(self):
+        """
+        functions and constants are recognized by pycalc
+        """
         self.assertEqual(pycalc.evaluate_string_expression("pi+e", []), pi + e)
         self.assertEqual(pycalc.evaluate_string_expression("log(e)", []), log(e))
         self.assertEqual(pycalc.evaluate_string_expression("sin(pi/2)", []), sin(pi / 2))
@@ -31,17 +45,26 @@ class OverallTests(unittest.TestCase):
         self.assertEqual(pycalc.evaluate_string_expression("2*sin(pi/2)", []), 2 * sin(pi / 2))
 
     def test_associative(self):
+        """
+        left and right associative
+        """
         self.assertEqual(pycalc.evaluate_string_expression("102%12%7", []), 102 % 12 % 7)
         self.assertEqual(pycalc.evaluate_string_expression("100/4/3", []), 100 / 4 / 3)
         self.assertEqual(pycalc.evaluate_string_expression("2^3^4", []), 2 ** 3 ** 4)
 
     def test_comparison_operators(self):
+        """
+        logical operators
+        """
         self.assertEqual(pycalc.evaluate_string_expression("1+2*3==1+2*3", []), 1 + 2 * 3 == 1 + 2 * 3)
         self.assertEqual(pycalc.evaluate_string_expression("e^5>=e^5+1", []), e ** 5 >= e ** 5 + 1)
         self.assertEqual(pycalc.evaluate_string_expression("1+2*4/3+1!=1+2*4/3+2", []),
                          1 + 2 * 4 / 3 + 1 != 1 + 2 * 4 / 3 + 2)
 
     def test_common(self):
+        """
+        other tests
+        """
         self.assertEqual(pycalc.evaluate_string_expression("(100)", []), (100))
         self.assertEqual(pycalc.evaluate_string_expression("666", []), 666)
         self.assertEqual(pycalc.evaluate_string_expression("10(2+1)", []), 10 * (2 + 1))
@@ -70,6 +93,9 @@ class OverallTests(unittest.TestCase):
                          sin(e ** log(e ** e ** sin(23.0), 45.0) + cos(3.0 + log10(e ** -e))))
 
     def test_error(self):
+        """
+        error cases when the exception is thrown
+        """
         self.assertRaises(Exception, pycalc.evaluate_string_expression, "", [])
         self.assertRaises(Exception, pycalc.evaluate_string_expression, "+", [])
         self.assertRaises(Exception, pycalc.evaluate_string_expression, "1-", [])

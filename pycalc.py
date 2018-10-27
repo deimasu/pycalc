@@ -1,3 +1,6 @@
+"""
+The main module of pycalc
+"""
 import argparse
 import sys
 
@@ -9,9 +12,9 @@ def evaluate_string_expression(expression: str, modules):
     """
     A function that tokenize the string math expression considering given modules, then converts in to RPN,
     then evaluates this expression and returns the result of this expression
-    :param expression:
-    :param modules:
-    :return:
+    :param expression: string math expression
+    :param modules: additional modules to use (names)
+    :return: the result of math expression
     """
     return evaluate_rpn(convert_to_rpn(tokenize(expression, modules)))
 
@@ -25,10 +28,11 @@ if __name__ == "__main__":
     if "-m" in sys.argv or "--use-modules" in sys.argv:
         sys.argv.insert(len(sys.argv) - 1, "--")
 
+    print(sys.argv)
+
     args = parser.parse_args()
 
-    # value = "2**2"
-    value = args.EXPRESSION
+    value = str(args.EXPRESSION).replace("'", "").replace('"', "")
 
     print(evaluate_string_expression(value, args.use_modules))
     try:
