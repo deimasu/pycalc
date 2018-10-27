@@ -28,14 +28,11 @@ if __name__ == "__main__":
     if "-m" in sys.argv or "--use-modules" in sys.argv:
         sys.argv.insert(len(sys.argv) - 1, "--")
 
-    print(sys.argv)
-
     args = parser.parse_args()
 
     value = str(args.EXPRESSION).replace("'", "").replace('"', "")
 
-    print(evaluate_string_expression(value, args.use_modules))
     try:
-        ...
+        print(evaluate_string_expression(value, args.use_modules))
     except Exception as exception:
         print("ERROR: %s" % exception)
