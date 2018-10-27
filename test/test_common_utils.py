@@ -5,7 +5,10 @@ import unittest
 import sys
 
 sys.path.append("../")
-from utils.common_utils import *
+try:
+    from utils.common_utils import *
+except Exception:
+    raise
 
 
 class TryToIntTests(unittest.TestCase):

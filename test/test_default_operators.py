@@ -5,7 +5,10 @@ import unittest
 import sys
 
 sys.path.append("../")
-from data.default_operators import *
+try:
+    from data.default_operators import *
+except Exception:
+    raise
 
 
 class OperatorsTest(unittest.TestCase):

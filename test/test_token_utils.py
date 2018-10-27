@@ -6,7 +6,10 @@ from math import *
 import sys
 
 sys.path.append("../")
-from utils.token_utils import *
+try:
+    from utils.token_utils import *
+except Exception:
+    raise
 
 
 class CutNextTokenTests(unittest.TestCase):

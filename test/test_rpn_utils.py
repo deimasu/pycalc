@@ -6,7 +6,10 @@ import sys
 from math import *
 
 sys.path.append("../")
-from utils.rpn_utils import *
+try:
+    from utils.rpn_utils import *
+except Exception:
+    raise
 
 
 def join_tokens(token_list):

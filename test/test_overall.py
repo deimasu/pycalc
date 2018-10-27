@@ -6,7 +6,10 @@ from math import *
 import sys
 
 sys.path.append("../")
-import pycalc
+try:
+    import pycalc
+except Exception:
+    raise
 
 
 class OverallTests(unittest.TestCase):
