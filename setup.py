@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 
 setup(
-    name='pycalc_xc0r3',
+    name='pycalcxc0r3',
     version="1.0",
     description="pure python CLI calculator, python course home task",
     author="Dmitrii Pchelintsev",
