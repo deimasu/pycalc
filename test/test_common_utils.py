@@ -1,5 +1,7 @@
 import unittest
+import sys
 
+sys.path.append("../")
 from utils.common_utils import *
 
 
@@ -68,3 +70,7 @@ class ResultToIntTests(unittest.TestCase):
         self.assertEqual(type(self.sample_function(5.0)), int)
         self.assertEqual(type(self.sample_function(0.0)), int)
         self.assertEqual(type(self.sample_function(-5.0)), int)
+
+
+if __name__ == "__main__":
+    unittest.main()
