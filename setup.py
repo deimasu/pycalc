@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 
 setup(
-    name='pycalc',
+    name='pycalc_xc0r3',
     version="1.0",
     description="pure python CLI calculator, python course home task",
     author="Dmitrii Pchelintsev",
@@ -10,7 +10,7 @@ setup(
     packages=find_packages(exclude=['tests']),
     entry_points={
         "console_scripts": [
-            "pycalc=pycalc"
+            "pycalc=main.pycalc:main"
         ]
     }
 )

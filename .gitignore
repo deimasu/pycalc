@@ -6,6 +6,6 @@ venv/
 .idea/
 # distribution folders
 dist/
-pycalc.egg-info/
+*egg-info/
 # coverage files
 *.coverage*

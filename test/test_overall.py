@@ -7,7 +7,7 @@ import sys
 
 sys.path.append("../")
 try:
-    import pycalc
+    from main import pycalc
 except Exception:
     raise
 

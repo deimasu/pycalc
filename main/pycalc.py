@@ -19,7 +19,10 @@ def evaluate_string_expression(expression: str, modules):
     return evaluate_rpn(convert_to_rpn(tokenize(expression, modules)))
 
 
-if __name__ == "__main__":
+def main():
+    """
+    the entry point for pycalc
+    """
     parser = argparse.ArgumentParser(prog="pycalc", description="Pure-python command-line calculator.")
 
     parser.add_argument("EXPRESSION", help="expression string to evaluate", type=str)
